@@ -34,6 +34,8 @@ const array = [
     }
 ]
 
+renderForm();
+
 const table = document.createElement('table');
 document.body.appendChild(table);
 const thead = document.createElement('thead');
