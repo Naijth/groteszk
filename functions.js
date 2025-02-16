@@ -1,3 +1,9 @@
+/**
+ * @param {Array} array 
+ * @param {HTMLElement} thead 
+ * @param {HTMLElement} tbody 
+ * This simply renders the table using given parameters from the array
+ */
 function renderTable(array, thead, tbody){
     for (let i = 0; i < array.length; i++) {
         if (i == 0) {
@@ -34,6 +40,13 @@ function renderTable(array, thead, tbody){
     }
 }
 
+/**
+ * @param {HTMLElement} inputElement 
+ * @param {String} inputErrorMessage 
+ * @returns false if the inputElement's value is an empty string and true if it isn't
+ * Also adds an error message to the empty div located under it, however the error message won't disappear no matter what I try,
+ * so I'll just live with it. Kinda sadge
+ */
 function validateFormField(inputElement, inputErrorMessage){
     if (inputElement.value == ''){
         const parentElement = inputElement.parentElement;
@@ -47,6 +60,13 @@ function validateFormField(inputElement, inputErrorMessage){
     }
 }
 
+/**
+ * @param {HTMLElement} inputNameElement 
+ * @param {HTMLElement} inputWorkElement 
+ * @returns false if one of the two inputs is an empty string and true if that's not the case
+ * It uses the validateFormField above, so if they don't match it will always return false, however this also means
+ * that the aforementioned issue of the error message being stuck there is still very much a problem
+ */
 function validateTwoWriters(inputNameElement, inputWorkElement){
     if (inputNameElement.value != '' && inputWorkElement.value == ''){
         return validateFormField(inputWorkElement, "Mind két mezőt ki kell tölteni!");
@@ -56,6 +76,10 @@ function validateTwoWriters(inputNameElement, inputWorkElement){
     return true;
 }
 
+/**
+ * Using no inputs whatsoever this is a self contained form generator meant to be only used ONCE, othewise it'll most break everything.
+ * It also uses a different function to avoid massive amounts of code repetition
+ */
 function renderForm() {
     const form = document.createElement('form');
     form.id = 'form';
@@ -73,6 +97,13 @@ function renderForm() {
     form.appendChild(button);
 }
 
+/**
+ * @param {HTMLElement} form 
+ * @param {String} type 
+ * @param {String} labelText 
+ * @param {String} id 
+ * This is the thing that renderForm uses to avoid MASSIVE amounts of code repetition unlike rednerTable, which doesn't have any
+ */
 function formField(form, type, labelText, id){
     const mainDiv = document.createElement('div');
     form.appendChild(mainDiv);
