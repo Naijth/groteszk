@@ -10,7 +10,6 @@ const array = [
         work: 'A köpönyeg'
     },
     {
-        nationality: '',
         name: 'Csehov',
         work: 'A csinovnyik halála'
     },
@@ -24,7 +23,7 @@ const array = [
         name: 'Örkény István',
         work: 'Egyperces Novellák'
     },
-    {   nationality: '',
+    {   
         name: 'József Attila',
         work: 'Klárisok'
     },
