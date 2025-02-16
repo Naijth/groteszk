@@ -31,5 +31,27 @@ function renderTable(array, thead, tbody){
             tr.appendChild(td3);
             td3.innerHTML = array[i].work;
         }
-    } 
+    }
+}
+
+function validateFormField(inputElement, inputErrorMessage){
+    if (inputElement.value == ''){
+        const parentElement = inputElement.parentElement;
+        const error = parentElement.querySelector('.error');
+        if (error != undefined) {
+            error.innerHTML = inputErrorMessage;
+        }
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validateTwoWriters(inputNameElement, inputWorkElement){
+    if (inputNameElement.value != '' && inputWorkElement.value == ''){
+        return validateFormField(inputWorkElement, "Mind két mezőt ki kell tölteni!");
+    } else if (inputNameElement.value == '' && inputWorkElement.value != '') {
+        return validateFormField(inputNameElement, "Mind két mezőt ki kell tölteni!")
+    }
+    return true;
 }
